@@ -7,7 +7,7 @@ const API_BASE = (() => {
   if (isLocal) return "http://localhost:8000";
   // 👉 Replace this with your deployed Render URL after `render deploy`,
   //    e.g. "https://career-compass-api.onrender.com"
-  return "https://career-compass-api.onrender.com";
+  return "https://job-finder-agent-1-bg7m.onrender.com";
 })();
 
 // Compass needle angle (degrees) per routed category — N/E/S/W.
