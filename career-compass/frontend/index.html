@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Career Compass — Find Your Path</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="aurora"></div>
+  <div class="stars" id="stars"></div>
+
+  <main class="wrap">
+
+    <header class="hero">
+      <div class="hero-copy">
+        <div class="badge">Agentic career routing · LangGraph + Groq</div>
+        <h1>Career <span class="grad-text">Compass</span></h1>
+        <p class="sub">Tell it your degree and interests — a small AI graph routes you
+          to the right specialist, then hands back real jobs, skills, and companies to target.</p>
+      </div>
+      <div class="compass-wrap" aria-hidden="true">
+        <svg id="hero-compass" viewBox="0 0 200 200" class="compass">
+          <circle cx="100" cy="100" r="92" class="c-ring" />
+          <circle cx="100" cy="100" r="70" class="c-ring-inner" />
+          <text x="100" y="26" class="c-label">ENG</text>
+          <text x="178" y="104" class="c-label" text-anchor="end">BIZ</text>
+          <text x="100" y="182" class="c-label" text-anchor="middle">MED</text>
+          <text x="22" y="104" class="c-label">ART</text>
+          <g id="needle" class="needle" style="transform-origin:100px 100px;">
+            <path d="M100 30 L108 100 L100 96 L92 100 Z" class="needle-n" />
+            <path d="M100 170 L108 100 L100 104 L92 100 Z" class="needle-s" />
+          </g>
+          <circle cx="100" cy="100" r="6" class="c-hub" />
+        </svg>
+      </div>
+    </header>
+
+    <section class="card" id="form-card">
+      <form id="career-form">
+        <label class="field">
+          <span class="label-text">Your name</span>
+          <input type="text" id="name" placeholder="e.g. Alan" autocomplete="off" />
+        </label>
+
+        <label class="field">
+          <span class="label-text">Pick your course / degree</span>
+          <select id="degree-select">
+            <option value="">— Select a course —</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span class="label-text">Not on the list? Type it instead</span>
+          <input type="text" id="degree-custom" placeholder="e.g. Astrophysics" autocomplete="off" />
+        </label>
+
+        <label class="field">
+          <span class="label-text">Key skills or interests</span>
+          <input type="text" id="interests" placeholder="e.g. coding, storytelling, working with people" autocomplete="off" />
+        </label>
+
+        <button type="submit" id="submit-btn">
+          <span id="btn-text">✨ Chart My Path</span>
+        </button>
+      </form>
+      <p class="error" id="error-box" hidden></p>
+    </section>
+
+    <section class="card result" id="result-card" hidden>
+      <div class="result-head">
+        <div class="vibe-badge" id="vibe-badge"></div>
+        <h2 id="result-title"></h2>
+        <p id="result-reasoning" class="reasoning"></p>
+      </div>
+
+      <div class="grid">
+        <div class="tile">
+          <h3>🚀 Recommended Jobs</h3>
+          <div id="jobs-list" class="pill-list"></div>
+        </div>
+        <div class="tile">
+          <h3>🛠️ Key Skills to Develop</h3>
+          <div id="skills-list" class="pill-list"></div>
+        </div>
+        <div class="tile">
+          <h3>🏢 Companies to Target</h3>
+          <div id="companies-list" class="pill-list"></div>
+        </div>
+      </div>
+
+      <div class="tile roadmap-tile">
+        <h3>🗺️ Your 3-Step Roadmap</h3>
+        <ol id="roadmap-list" class="roadmap"></ol>
+      </div>
+
+      <button type="button" id="reset-btn">↺ Try another degree</button>
+    </section>
+
+    <footer>
+      <p>Built with LangGraph + Groq · Backend on Render · Frontend on Vercel</p>
+    </footer>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
